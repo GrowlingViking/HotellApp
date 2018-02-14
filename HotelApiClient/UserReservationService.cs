@@ -26,7 +26,7 @@ namespace HotelApiClient
         /*
          * Make a reservation given constraints. Return the reservation.
          * */
-        public UserRservation MakeReservation(RoomBookingParams bookingParams)
+        public UserReservation MakeReservation(RoomBookingParams bookingParams)
         {
             throw new NotImplementedException();
         }
@@ -34,7 +34,7 @@ namespace HotelApiClient
         /*
          * List reservations for user
          * */
-        public IList<UserRservation> ListUserReservations()
+        public IList<UserReservation> ListUserReservations()
         {
             throw new NotImplementedException();
         }
@@ -42,7 +42,7 @@ namespace HotelApiClient
         /*
          * Get information for a single user reservation
          * */
-        public UserRservation GetUserReservation(int id)
+        public UserReservation GetUserReservation(int id)
         {
             throw new NotImplementedException();
         }
