@@ -12,7 +12,7 @@ namespace HotelApiBackend.Controllers
     [Route("api/reservations")]
     public class UserReservationsController : Controller
     {
-        [Route("/availability")]
+        [Route("availability")]
         [HttpPost]
         public void CheckAvailability([FromBody] RoomBookingParams bookingParams)
         {
