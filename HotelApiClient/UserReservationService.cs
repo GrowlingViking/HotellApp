@@ -1,8 +1,10 @@
 ﻿using HotelApiClient.Data;
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace HotelApiClient
 {
@@ -18,17 +20,35 @@ namespace HotelApiClient
         /**
          * Check if a room is available given constraints. Returns true or false.
          * */
-        public bool IsRoomAvailable(RoomBookingParams searchParams)
+        public async Task<bool> IsRoomAvailable(RoomBookingParams searchParams)
         {
-            throw new NotImplementedException();
+            var result = await client.PostAsJsonAsync(BuildFullUrl("/reservations/availability"), searchParams);
+            if (result.StatusCode == HttpStatusCode.OK)
+            {
+                return true;
+            }
+            else if (result.StatusCode == HttpStatusCode.BadRequest)
+            {
+                return false;
+            }
+            else
+            {
+                throw new HttpRequestException("Error occurred when checking availability");
+            }
         }
 
         /*
          * Make a reservation given constraints. Return the reservation.
          * */
-        public UserReservation MakeReservation(RoomBookingParams bookingParams)
+        public async Task<UserReservation> MakeReservation(RoomBookingParams bookingParams)
         {
-            throw new NotImplementedException();
+            var result = await client.PostAsJsonAsync(BuildFullUrl("/reservations"), bookingParams);
+            result.EnsureSuccessStatusCode();
+
+            UserReservation reservation = null;
+            reservation = await result.Content.ReadAsAsync<UserReservation>();
+
+            return reservation;
         }
 
         /*

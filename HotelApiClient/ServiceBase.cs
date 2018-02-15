@@ -14,6 +14,21 @@ namespace HotelApiClient
         {
             this.client = client;
             this.baseUrl = baseUrl;
+
+            if (baseUrl.EndsWith("/"))
+            {
+                // base url should always end with /
+                throw new ArgumentException("baseUrl must not be specified with an ending /");
+            }
+        }
+
+        protected string BuildFullUrl(string resource)
+        {
+            if (!resource.StartsWith("/"))
+            {
+                throw new ArgumentException("resource should not have a leading /");
+            }
+            return baseUrl + resource;
         }
     }
 }
