@@ -1,4 +1,4 @@
-﻿using HotelApiClient.Data;
+﻿using HotelApiContracts;
 using System;
 using System.Collections.Generic;
 using System.Net;

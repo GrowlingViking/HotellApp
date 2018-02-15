@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace HotelApiClient.Data
+namespace HotelApiContracts
 {
     public enum RoomKind
     {

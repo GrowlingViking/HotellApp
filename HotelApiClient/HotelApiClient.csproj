@@ -8,4 +8,8 @@
     <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.4" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HotelApiContracts\HotelApiContracts.csproj" />
+  </ItemGroup>
+
 </Project>
