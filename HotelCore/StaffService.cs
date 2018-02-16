@@ -6,7 +6,29 @@ using System.Threading.Tasks;
 
 namespace HotelCore
 {
-    class StaffService
+    public class StaffService
     {
+        private dat154_18_1Entities dx;
+
+        public StaffService()
+        {
+            dx = new dat154_18_1Entities();
+        }
+
+        public StaffService(dat154_18_1Entities ctx)
+        {
+            dx = ctx;
+        }
+
+        public List<Task> GetTasks(String serviceType)
+        {
+            return dx.Tasks.Where(t => t.ServiceType == serviceType).ToList();
+        }
+
+        public List<Note> GetNotes(int task)
+        {
+            return dx.Notes.Where(n => n.Task.Id == task).ToList();
+        }
+
     }
 }
