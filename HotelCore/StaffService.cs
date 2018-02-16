@@ -10,11 +10,6 @@ namespace HotelCore
     {
         private dat154_18_1Entities dx;
 
-        public StaffService()
-        {
-            dx = new dat154_18_1Entities();
-        }
-
         public StaffService(dat154_18_1Entities ctx)
         {
             dx = ctx;
