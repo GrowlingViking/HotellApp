@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace HotelCore.Tests
 {
     [TestClass]
-    public class SmokeTests
+    public class CustomerServiceTests
     {
         private ServiceFactory factory;
 
@@ -26,7 +26,7 @@ namespace HotelCore.Tests
         {
             var repo = factory.GetCustomerService();
             var roomService = factory.GetRoomService();
-            var roomType = roomService.GetRoomType(Constants.Family);
+            var roomType = roomService.GetRoomType(RoomTypes.Family);
             Assert.IsNotNull(roomType);
 
             var reservation = repo.MakeReservation("Erik", roomType, DateTime.Now, DateTime.Now);

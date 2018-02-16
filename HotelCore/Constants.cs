@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HotelCore
 {
-    public class Constants
+    public class RoomTypes
     {
         public static string Family { get { return "Family"; } }
     }
