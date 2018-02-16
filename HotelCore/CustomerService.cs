@@ -15,9 +15,9 @@ namespace HotelCore
             dx = new dat154_18_1Entities();
         }
 
-        public List<Reservation> getReseptions(String User)
+        public List<Reservation> GetReservations(String user)
         {
-            return dx.Reservations.Where(x => x.User.UserName == User).ToList();
+            return dx.Reservations.Where(x => x.User.UserName == user).ToList();
         }
     }
 }
