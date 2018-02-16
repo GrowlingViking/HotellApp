@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace HotelCore
 {
-    public class ReseptionService
+    public class ReceptionService
     {
         private dat154_18_1Entities ctx;
 
-        public ReseptionService(dat154_18_1Entities ctx)
+        public ReceptionService(dat154_18_1Entities ctx)
         {
             this.ctx = ctx;
         }

@@ -25,9 +25,9 @@ namespace HotelCore
             return new RoomService(ctx);
         }
 
-        public ReseptionService GetReceptionService()
+        public ReceptionService GetReceptionService()
         {
-            return new ReseptionService(ctx);
+            return new ReceptionService(ctx);
         }
 
         public StaffService GetStaffService()
