@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace HotelCore.Tests
 {
     [TestClass]
-    public class StaffServiceTests
+    public class SmokeTests
     {
         private ServiceFactory factory;
 
@@ -15,11 +15,10 @@ namespace HotelCore.Tests
         }
 
         [TestMethod]
-        public void GettingTasksAndNotesDoesNotCrash()
+        public void NothingCrashes()
         {
-            var repo = factory.GetStaffService();
-            var tasks = repo.GetTasks("Cleaning");
-            var notes = repo.GetNotes(2);
+            var repo = factory.GetCustomerService();
+            var reservations = repo.GetReservations("Erik");
         }
     }
 }
