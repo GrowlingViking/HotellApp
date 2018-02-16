@@ -8,21 +8,21 @@ namespace HotelCore
 {
     class ReseptionService
     {
-        private dat154_18_1Entities dx;
+        private dat154_18_1Entities ctx;
 
-        public ReseptionService()
+        public ReseptionService(dat154_18_1Entities ctx)
         {
-            dx = new dat154_18_1Entities();
+            this.ctx = ctx;
         }
 
         public List<Reservation> GetReservations(bool active)
         {
-            return dx.Reservations.Where(res => !active || res.Room == null).ToList();
+            return ctx.Reservations.Where(res => !active || res.Room == null).ToList();
         }
 
         public List<Room> GetReadyRooms(String roomType)
         {
-            return dx.Rooms.Where(r => r.RoomType.Name == roomType 
+            return ctx.Rooms.Where(r => r.RoomType.Name == roomType 
             && r.Reservations.Where(res => res.End < DateTime.Now).Count() == 0 
             && true).ToList(); //todo
         }
