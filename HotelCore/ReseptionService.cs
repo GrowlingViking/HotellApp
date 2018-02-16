@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace HotelCore
 {
-    class ReseptionService
+    public class ReseptionService
     {
+        private dat154_18_1Entities ctx;
+
+        public ReseptionService(dat154_18_1Entities ctx)
+        {
+            this.ctx = ctx;
+        }
     }
 }
