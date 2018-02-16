@@ -22,9 +22,11 @@ namespace HotelCore
 
         public List<Room> GetReadyRooms(String roomType)
         {
-            return ctx.Rooms.Where(r => r.RoomType.Name == roomType 
-            && r.Reservations.Where(res => res.End < DateTime.Now).Count() == 0 
-            && true).ToList(); //todo
+            return ctx.Rooms.Where(r => r.RoomType.Name == roomType)
+            .Where(r => r.Reservations.Where(res => res.End < DateTime.Now).Count() == 0)
+            .Where(r => r.Tasks.Where(task => task.ServiceType == TaskTypes.Cleaning)
+                .Where(task => task.Status == TaskStatus.In_progress || task.Status == TaskStatus.New).Count() == 0)
+            .ToList();
         }
     }
 }

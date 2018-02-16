@@ -80,7 +80,7 @@
     <Compile Include="RoomType.cs">
       <DependentUpon>HotelModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="RoomTypes.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="ServiceFactory.cs" />
     <Compile Include="StaffService.cs" />
     <Compile Include="Task.cs">
