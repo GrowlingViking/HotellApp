@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using HotelCore.Services;
 using HotelCore;
 using System.Reflection;
+using HotelCore.Entities;
 
 namespace HotelDesktop
 {
