@@ -14,6 +14,8 @@ namespace HotelCore
     public class TaskTypes
     {
         public static string Cleaning { get { return "Cleaning"; } }
+        public static string Maintenance { get { return "Maintenance"; } }
+        public static string Service { get { return "Service"; } }
     }
 
     public class TaskStatus

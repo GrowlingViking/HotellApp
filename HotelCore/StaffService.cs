@@ -25,5 +25,6 @@ namespace HotelCore
             return dx.Notes.Where(n => n.Task.Id == task).ToList();
         }
 
+
     }
 }
