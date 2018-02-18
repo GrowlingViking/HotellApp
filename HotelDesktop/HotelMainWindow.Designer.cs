@@ -70,15 +70,15 @@
             // 
             // reservationBindingSource
             // 
-            this.reservationBindingSource.DataSource = typeof(HotelCore.Reservation);
+            this.reservationBindingSource.DataSource = typeof(HotelCore.Entities.Reservation);
             // 
             // userBindingSource
             // 
-            this.userBindingSource.DataSource = typeof(HotelCore.User);
+            this.userBindingSource.DataSource = typeof(HotelCore.Entities.User);
             // 
             // reservationBindingSource1
             // 
-            this.reservationBindingSource1.DataSource = typeof(HotelCore.Reservation);
+            this.reservationBindingSource1.DataSource = typeof(HotelCore.Entities.Reservation);
             // 
             // idDataGridViewTextBoxColumn
             // 
