@@ -9,11 +9,11 @@ namespace HotelCore
 {
     public class ServiceFactory
     {
-        private dat154_18_1Entities ctx;
+        private HotelModelCf ctx;
 
         public ServiceFactory()
         {
-            this.ctx = new dat154_18_1Entities();
+            this.ctx = new HotelModelCf();
         }
 
         public CustomerService GetCustomerService()

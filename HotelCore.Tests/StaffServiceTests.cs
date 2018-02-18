@@ -19,7 +19,9 @@ namespace HotelCore.Tests
         {
             var repo = factory.GetStaffService();
             var tasks = repo.GetTasks("Cleaning");
+            Assert.IsNotNull(tasks);
             var notes = repo.GetNotes(2);
+            Assert.IsNotNull(notes);
         }
     }
 }
