@@ -18,6 +18,8 @@ namespace HotelCore.Migrations
         {
             context.RoomTypes.AddOrUpdate(new RoomType { Id = 1, Name = "Single" }, new RoomType { Id = 2, Name = "Double" },
                 new RoomType { Id = 3, Name = "Family" }, new RoomType { Id = 4, Name = "Penthouse" });
+
+            context.Users.AddOrUpdate(new User { Id = 1, UserName = "Erik", Password = "" });
         }
     }
 }

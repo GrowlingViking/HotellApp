@@ -18,7 +18,7 @@ namespace HotelCore.Services
 
         public RoomType GetRoomType(string type)
         {
-            return dx.RoomTypes.Single();
+            return dx.RoomTypes.Where(rt => rt.Name == type).Single();
         }
     }
 }
