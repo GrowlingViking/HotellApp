@@ -33,16 +33,18 @@
             this.reservationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.reservationBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.reservationBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.startDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.endDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.roomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.roomTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.userDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.User = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Room = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reservationBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reservationBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reservationBindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -56,10 +58,10 @@
             this.idDataGridViewTextBoxColumn,
             this.startDataGridViewTextBoxColumn,
             this.endDataGridViewTextBoxColumn,
-            this.roomDataGridViewTextBoxColumn,
-            this.roomTypeDataGridViewTextBoxColumn,
-            this.userDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.reservationBindingSource;
+            this.Type,
+            this.User,
+            this.Room});
+            this.dataGridView1.DataSource = this.reservationBindingSource2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
@@ -79,6 +81,10 @@
             // reservationBindingSource1
             // 
             this.reservationBindingSource1.DataSource = typeof(HotelCore.Entities.Reservation);
+            // 
+            // reservationBindingSource2
+            // 
+            this.reservationBindingSource2.DataSource = typeof(HotelCore.Entities.Reservation);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -101,26 +107,26 @@
             this.endDataGridViewTextBoxColumn.Name = "endDataGridViewTextBoxColumn";
             this.endDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // roomDataGridViewTextBoxColumn
+            // Type
             // 
-            this.roomDataGridViewTextBoxColumn.DataPropertyName = "Room.Nr";
-            this.roomDataGridViewTextBoxColumn.HeaderText = "Room";
-            this.roomDataGridViewTextBoxColumn.Name = "roomDataGridViewTextBoxColumn";
-            this.roomDataGridViewTextBoxColumn.ReadOnly = true;
+            this.Type.DataPropertyName = "Type.Name";
+            this.Type.HeaderText = "Type";
+            this.Type.Name = "Type";
+            this.Type.ReadOnly = true;
             // 
-            // roomTypeDataGridViewTextBoxColumn
+            // User
             // 
-            this.roomTypeDataGridViewTextBoxColumn.DataPropertyName = "RoomType.Name";
-            this.roomTypeDataGridViewTextBoxColumn.HeaderText = "RoomType";
-            this.roomTypeDataGridViewTextBoxColumn.Name = "roomTypeDataGridViewTextBoxColumn";
-            this.roomTypeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.User.DataPropertyName = "User.UserName";
+            this.User.HeaderText = "User";
+            this.User.Name = "User";
+            this.User.ReadOnly = true;
             // 
-            // userDataGridViewTextBoxColumn
+            // Room
             // 
-            this.userDataGridViewTextBoxColumn.DataPropertyName = "User.UserName";
-            this.userDataGridViewTextBoxColumn.HeaderText = "User";
-            this.userDataGridViewTextBoxColumn.Name = "userDataGridViewTextBoxColumn";
-            this.userDataGridViewTextBoxColumn.ReadOnly = true;
+            this.Room.DataPropertyName = "Room.Nr";
+            this.Room.HeaderText = "Room";
+            this.Room.Name = "Room";
+            this.Room.ReadOnly = true;
             // 
             // HotelMainWindow
             // 
@@ -134,6 +140,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.reservationBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reservationBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reservationBindingSource2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -144,12 +151,16 @@
         private System.Windows.Forms.BindingSource reservationBindingSource;
         private System.Windows.Forms.BindingSource userBindingSource;
         private System.Windows.Forms.BindingSource reservationBindingSource1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn startDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn endDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn roomDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn roomTypeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn userDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource reservationBindingSource2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn startDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn endDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Type;
+        private System.Windows.Forms.DataGridViewTextBoxColumn User;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Room;
     }
 }
 

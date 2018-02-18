@@ -73,6 +73,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\HotelCore.Entities.Note.datasource" />
+    <None Include="Properties\DataSources\HotelCore.Entities.Reservation.datasource" />
+    <None Include="Properties\DataSources\HotelCore.Entities.Room.datasource" />
+    <None Include="Properties\DataSources\HotelCore.Entities.RoomType.datasource" />
+    <None Include="Properties\DataSources\HotelCore.Entities.Task.datasource" />
+    <None Include="Properties\DataSources\HotelCore.Entities.User.datasource" />
     <None Include="Properties\DataSources\HotelCore.Note.datasource" />
     <None Include="Properties\DataSources\HotelCore.Reservation.datasource" />
     <None Include="Properties\DataSources\HotelCore.Room.datasource" />
