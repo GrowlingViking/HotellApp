@@ -49,7 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomerService.cs" />
+    <Compile Include="Services\CustomerService.cs" />
     <Compile Include="HotelModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -69,20 +69,20 @@
       <DependentUpon>HotelModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReceptionService.cs" />
+    <Compile Include="Services\ReceptionService.cs" />
     <Compile Include="Reservation.cs">
       <DependentUpon>HotelModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Room.cs">
       <DependentUpon>HotelModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="RoomService.cs" />
+    <Compile Include="Services\RoomService.cs" />
     <Compile Include="RoomType.cs">
       <DependentUpon>HotelModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Constants.cs" />
     <Compile Include="ServiceFactory.cs" />
-    <Compile Include="StaffService.cs" />
+    <Compile Include="Services\StaffService.cs" />
     <Compile Include="Task.cs">
       <DependentUpon>HotelModel.tt</DependentUpon>
     </Compile>
