@@ -5,6 +5,8 @@ namespace HotelCore
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
     using HotelCore.Entities;
+    using System.Data.Entity.ModelConfiguration.Conventions;
+    using System.Data.Entity.ModelConfiguration;
 
     public partial class HotelModelCf : DbContext
     {
@@ -22,33 +24,9 @@ namespace HotelCore
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Note>()
-                .ToTable("Note")
-                .HasRequired(n => n.Task)
-                .WithMany(t => t.Notes);
-
-            modelBuilder.Entity<Task>()
-                .ToTable("Task")
-                .HasRequired(t => t.Room)
-                .WithMany(r => r.Tasks);
-
-            modelBuilder.Entity<Reservation>()
-                .ToTable("Reservation")
-                .HasRequired(r => r.Type);
-
-            modelBuilder.Entity<Reservation>()
-                .HasRequired(r => r.User)
-                .WithMany(u => u.Reservations);
-
-            modelBuilder.Entity<Reservation>()
-                .HasRequired(r => r.Type);
-
-            modelBuilder.Entity<Room>()
-                .ToTable("Room")
-                .HasMany(r => r.Reservations)
-                .WithOptional(r => r.Room);
-
-            modelBuilder.Entity<RoomType>().ToTable("RoomType");
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            modelBuilder.Types().Configure(entity
+                => entity.ToTable("hotel_" + entity.ClrType.Name));
         }
     }
 }

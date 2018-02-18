@@ -11,7 +11,7 @@ namespace HotelCore.Entities
         public string ServiceType { get; set; }
         public string Status { get; set; }
 
-        public Room Room { get; set; }
-        public ICollection<Note> Notes { get; set; }
+        public virtual Room Room { get; set; }
+        public virtual ICollection<Note> Notes { get; set; }
     }
 }

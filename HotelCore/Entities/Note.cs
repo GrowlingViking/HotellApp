@@ -10,6 +10,6 @@ namespace HotelCore.Entities
     {
         public int Id { get; set; }
         public string Text { get; set; }
-        public Task Task { get; set; }
+        public virtual Task Task { get; set; }
     }
 }

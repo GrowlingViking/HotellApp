@@ -11,7 +11,7 @@ namespace HotelCore.Entities
         public RoomType Type { get; set; }
         public int Nr { get; set; }
 
-        public ICollection<Task> Tasks { get; set; }
-        public ICollection<Reservation> Reservations { get; set; }
+        public virtual ICollection<Task> Tasks { get; set; }
+        public virtual ICollection<Reservation> Reservations { get; set; }
     }
 }
