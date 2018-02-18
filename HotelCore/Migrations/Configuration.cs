@@ -1,5 +1,6 @@
 namespace HotelCore.Migrations
 {
+    using HotelCore.Entities;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -15,18 +16,8 @@ namespace HotelCore.Migrations
 
         protected override void Seed(HotelCore.HotelModelCf context)
         {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            context.RoomTypes.AddOrUpdate(new RoomType { Id = 1, Name = "Single" }, new RoomType { Id = 2, Name = "Double" },
+                new RoomType { Id = 3, Name = "Family" }, new RoomType { Id = 4, Name = "Penthouse" });
         }
     }
 }
