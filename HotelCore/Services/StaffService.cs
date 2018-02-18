@@ -1,16 +1,16 @@
-﻿using System;
+﻿using HotelCore.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace HotelCore.Services
 {
     public class StaffService
     {
-        private dat154_18_1Entities dx;
+        private HotelModelCf dx;
 
-        public StaffService(dat154_18_1Entities ctx)
+        public StaffService(HotelModelCf ctx)
         {
             dx = ctx;
         }

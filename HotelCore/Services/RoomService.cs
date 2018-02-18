@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HotelCore.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,16 +9,16 @@ namespace HotelCore.Services
 {
     public class RoomService
     {
-        private dat154_18_1Entities dx;
+        private HotelModelCf dx;
 
-        public RoomService(dat154_18_1Entities ctx)
+        public RoomService(HotelModelCf ctx)
         {
             dx = ctx;
         }
 
         public RoomType GetRoomType(string type)
         {
-            return dx.RoomTypes.Where(rt => rt.Name == type).Single();
+            return dx.RoomTypes.Single();
         }
     }
 }

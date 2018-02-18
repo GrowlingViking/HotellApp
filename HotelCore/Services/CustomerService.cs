@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HotelCore.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +9,9 @@ namespace HotelCore.Services
 {
     public class CustomerService
     {
-        private dat154_18_1Entities dx;
+        private HotelModelCf dx;
 
-        public CustomerService(dat154_18_1Entities ctx)
+        public CustomerService(HotelModelCf ctx)
         {
             dx = ctx;
         }
@@ -30,7 +31,7 @@ namespace HotelCore.Services
             var user = dx.Users.Where(u => u.UserName == userName).Single();
 
             var reservation = new Reservation();
-            reservation.RoomType = roomType;
+            reservation.Type = roomType;
             reservation.Start = from;
             reservation.End = to;
             reservation.User = user;
