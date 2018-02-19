@@ -16,10 +16,27 @@ namespace HotelCore.Migrations
 
         protected override void Seed(HotelCore.HotelModelCf context)
         {
-            context.RoomTypes.AddOrUpdate(new RoomType { Id = 1, Name = "Single" }, new RoomType { Id = 2, Name = "Double" },
-                new RoomType { Id = 3, Name = "Family" }, new RoomType { Id = 4, Name = "Penthouse" });
+            RoomType rtSingle = new RoomType { Id = 1, Name = "Single" };
+            RoomType rtDouble = new RoomType { Id = 2, Name = "Double" };
+            RoomType rtFamily = new RoomType { Id = 3, Name = "Family" };
+            RoomType rtPenthouse = new RoomType { Id = 4, Name = "Penthouse" };
+            context.RoomTypes.AddOrUpdate(rtSingle, rtDouble,
+                rtFamily, rtPenthouse);
 
             context.Users.AddOrUpdate(new User { Id = 1, UserName = "Erik", Password = "" });
+
+            AddRooms(context, 1, 20, rtSingle);
+            AddRooms(context, 21, 40, rtDouble);
+            AddRooms(context, 41, 60, rtFamily);
+            AddRooms(context, 61, 65, rtPenthouse);
+        }
+
+        private void AddRooms(HotelCore.HotelModelCf context, int fromNum, int toNum, RoomType type)
+        {
+            for (int i = fromNum; i < toNum; ++i)
+            {
+                context.Rooms.AddOrUpdate(new Room { Id = i, Nr = i, Type = type });
+            }
         }
     }
 }
