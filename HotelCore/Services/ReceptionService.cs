@@ -21,6 +21,11 @@ namespace HotelCore.Services
             return ctx.Reservations.Where(res => !active || res.Room == null).ToList();
         }
 
+        public List<Room> GetRooms()
+        {
+            return ctx.Rooms.ToList();
+        }
+
         public List<Room> GetReadyRooms(String roomType)
         {
             return ctx.Rooms.Where(r => r.Type.Name == roomType)

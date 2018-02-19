@@ -28,6 +28,15 @@ namespace HotelCore.Tests
         }
 
         [TestMethod]
+        public void GetRoomsTest()
+        {
+            var rs = factory.GetReceptionService();
+            List<Entities.Room> res = rs.GetRooms();
+            Assert.IsNotNull(res);
+            Assert.IsNotNull(res.First().Type);
+        }
+
+        [TestMethod]
         public void GetReadyRoomsTest()
         {
             var rs = factory.GetReceptionService();

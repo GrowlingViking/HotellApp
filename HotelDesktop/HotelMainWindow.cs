@@ -18,7 +18,6 @@ namespace HotelDesktop
     {
 
         ReceptionService rs;
-        List<Reservation> res;
 
         public HotelMainWindow()
         {
@@ -26,28 +25,25 @@ namespace HotelDesktop
 
             rs = new ServiceFactory().GetReceptionService();
 
-            res = rs.GetReservations(false);
-
-            dataGridView1.DataSource = res;
-        }
-
-        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            DataGridView grid = (DataGridView)sender;
-            DataGridViewRow row = grid.Rows[e.RowIndex];
-            DataGridViewColumn col = grid.Columns[e.ColumnIndex];
-            if (row.DataBoundItem != null && col.DataPropertyName.Contains("."))
+            var res = rs.GetReservations(false).Select(r => new
             {
-                string[] props = col.DataPropertyName.Split('.');
-                PropertyInfo propInfo = row.DataBoundItem.GetType().GetProperty(props[0]);
-                object val = propInfo.GetValue(row.DataBoundItem, null);
-                for (int i = 1; i < props.Length && val != null; i++)
-                {
-                    propInfo = val.GetType().GetProperty(props[i]);
-                    val = propInfo.GetValue(val, null);
-                }
-                e.Value = val;
-            }
+                Id = r.Id,
+                CheckIn = r.Start,
+                CheckOut = r.End,
+                ContactName = r.User.UserName,
+                RoomType = r.Type.Name,
+                Room = r.Room == null ? "" : r.Room.Nr.ToString()
+            }).ToList();
+
+            var rooms = rs.GetRooms().Select(r => new
+            {
+                Id = r.Id,
+                Nr = r.Nr,
+                RoomType = r.Type == null ? "" : r.Type.Name
+            }).ToList();
+
+            dataGridView2.DataSource = res;
+            dataGridView1.DataSource = rooms;
         }
     }
 }
