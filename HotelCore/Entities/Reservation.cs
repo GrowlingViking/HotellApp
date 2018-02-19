@@ -11,7 +11,7 @@ namespace HotelCore.Entities
         public int Id { get; set; }
         public DateTime Start { get; set; }
         public DateTime End { get; set; }
-        public RoomType Type { get; set; }
+        public virtual RoomType Type { get; set; }
 
         public virtual User User { get; set; }
         public virtual Room Room { get; set; }
