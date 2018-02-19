@@ -26,6 +26,11 @@ namespace HotelCore.Services
             return ctx.Rooms.ToList();
         }
 
+        public List<String> GetRoomTypes()
+        {
+            return ctx.RoomTypes.Select(rt => rt.Name).ToList();
+        }
+
         public List<Room> GetReadyRooms(String roomType)
         {
             return ctx.Rooms.Where(r => r.Type.Name == roomType)
@@ -33,6 +38,11 @@ namespace HotelCore.Services
             .Where(r => r.Tasks.Where(task => task.ServiceType == TaskTypes.Cleaning)
                 .Where(task => task.Status == TaskStatus.In_progress || task.Status == TaskStatus.New).Count() == 0)
             .ToList();
+        }
+
+        public Reservation GetReservation(int id)
+        {
+            return ctx.Reservations.Where(res => res.Id == id).First();
         }
     }
 }

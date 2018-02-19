@@ -45,5 +45,16 @@ namespace HotelDesktop
             dataGridView2.DataSource = res;
             dataGridView1.DataSource = rooms;
         }
+
+        private void dataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int id = (int)dataGridView2.SelectedRows[0].Cells[0].Value;
+            new ReservationWindow(id, rs).Show();
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int id = (int)dataGridView1.SelectedRows[0].Cells[0].Value;
+        }
     }
 }
