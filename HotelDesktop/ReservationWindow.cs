@@ -32,6 +32,10 @@ namespace HotelDesktop
                 Type.Items.Add(s);
             Type.SelectedItem = reservation.Type.Name;
             User.Text = reservation.User.UserName;
+
+            foreach (Room r in rs.GetReadyRooms(reservation.Type.Name))
+                RoomSelect.Items.Add(r.Nr);
+
         }
     }
 }
