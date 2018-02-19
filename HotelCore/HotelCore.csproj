@@ -60,6 +60,10 @@
     <Compile Include="Migrations\201802181737488_InitialCreate.Designer.cs">
       <DependentUpon>201802181737488_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802191112198_UniqueConstraints.cs" />
+    <Compile Include="Migrations\201802191112198_UniqueConstraints.Designer.cs">
+      <DependentUpon>201802191112198_UniqueConstraints.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Services\CustomerService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -79,6 +83,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201802181737488_InitialCreate.resx">
       <DependentUpon>201802181737488_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802191112198_UniqueConstraints.resx">
+      <DependentUpon>201802191112198_UniqueConstraints.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
