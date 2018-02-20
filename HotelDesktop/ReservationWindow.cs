@@ -33,17 +33,28 @@ namespace HotelDesktop
             Type.SelectedItem = reservation.Type.Name;
             User.Text = reservation.User.UserName;
 
-            foreach (Room r in rs.GetReadyRooms(reservation.Type.Name))
-                RoomSelect.Items.Add(r.Nr);
-
+            if (reservation.Room == null)
+                foreach (Room r in rs.GetReadyRooms(reservation.Type.Name))
+                    RoomSelect.Items.Add(r.Nr);
+            else
+            {
+                RoomSelect.Items.Add(reservation.Room.Nr);
+                RoomSelect.SelectedItem = reservation.Room.Nr;
+            }
         }
 
         private void CheckIn_Click(object sender, EventArgs e)
         {
             int room;
-            if (int.TryParse(RoomSelect.SelectedItem.ToString(), out room))
+            if (int.TryParse(RoomSelect.SelectedItem.ToString(), out room) && reservation.Room == null)
                 if (rs.CheckIn(reservation.Id, room))
                     this.Close();
+        }
+
+        private void CheckOut_Click(object sender, EventArgs e)
+        {
+            if (rs.CheckOut(reservation.Id))
+                this.Close();
         }
     }
 }

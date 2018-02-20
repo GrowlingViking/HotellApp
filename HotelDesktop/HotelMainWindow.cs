@@ -18,6 +18,7 @@ namespace HotelDesktop
     {
 
         ReceptionService rs;
+        bool active = true;
 
         public HotelMainWindow()
         {
@@ -25,15 +26,27 @@ namespace HotelDesktop
 
             rs = new ServiceFactory().GetReceptionService();
 
-            var res = rs.GetReservations(false).Select(r => new
+            InitializeData();
+
+            rs.StateChanged += Rs_StateChanged;
+        }
+
+        private void Rs_StateChanged(object sender)
+        {
+            InitializeData();
+        }
+
+        private void InitializeData()
+        {
+            var res = rs.GetReservations(active).Select(r => new
             {
                 Id = r.Id,
                 CheckIn = r.Start,
                 CheckOut = r.End,
-                ContactName = r.User.UserName,
+                ContactName = r.User.UserName == null ? "" : r.User.UserName,
                 RoomType = r.Type.Name,
                 Room = r.Room == null ? "" : r.Room.Nr.ToString()
-            }).ToList();
+            }).OrderByDescending(r => r.CheckIn).ToList();
 
             var rooms = rs.GetRooms().Select(r => new
             {
@@ -54,6 +67,12 @@ namespace HotelDesktop
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             int id = (int)dataGridView1.SelectedRows[0].Cells[0].Value;
+        }
+
+        private void ShowOld_CheckedChanged(object sender, EventArgs e)
+        {
+            active = !ShowOld.Checked;
+            InitializeData();
         }
     }
 }

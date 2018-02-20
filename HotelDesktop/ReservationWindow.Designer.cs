@@ -234,6 +234,7 @@
             this.CheckOut.TabIndex = 2;
             this.CheckOut.Text = "Check out";
             this.CheckOut.UseVisualStyleBackColor = true;
+            this.CheckOut.Click += new System.EventHandler(this.CheckOut_Click);
             // 
             // Save
             // 

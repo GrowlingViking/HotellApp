@@ -38,9 +38,11 @@
             this.reservationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.reservationBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.ShowOld = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reservationBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reservationBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
@@ -113,6 +115,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.ShowOld);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
@@ -137,6 +140,17 @@
             // 
             this.reservationBindingSource1.DataSource = typeof(HotelCore.Entities.Reservation);
             // 
+            // ShowOld
+            // 
+            this.ShowOld.AutoSize = true;
+            this.ShowOld.Location = new System.Drawing.Point(10, 22);
+            this.ShowOld.Name = "ShowOld";
+            this.ShowOld.Size = new System.Drawing.Size(90, 21);
+            this.ShowOld.TabIndex = 0;
+            this.ShowOld.Text = "Show Old";
+            this.ShowOld.UseVisualStyleBackColor = true;
+            this.ShowOld.CheckedChanged += new System.EventHandler(this.ShowOld_CheckedChanged);
+            // 
             // HotelMainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -149,6 +163,8 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reservationBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reservationBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
@@ -170,6 +186,7 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.CheckBox ShowOld;
     }
 }
 

@@ -8,8 +8,12 @@ using System.Threading.Tasks;
 
 namespace HotelCore.Services
 {
+
+    public delegate void Del(object sender);
+
     public class ReceptionService
     {
+        public event Del StateChanged;
         private HotelModelCf ctx;
 
         public ReceptionService(HotelModelCf ctx)
@@ -19,7 +23,7 @@ namespace HotelCore.Services
 
         public List<Reservation> GetReservations(bool active)
         {
-            return ctx.Reservations.Where(res => !active || res.Room == null || res.End < DateTime.Now).ToList();
+            return ctx.Reservations.Where(res => !active || res.Room == null || res.End > DateTime.Now).ToList();
         }
 
         public List<Room> GetRooms()
@@ -50,7 +54,30 @@ namespace HotelCore.Services
         {
             Reservation res = GetReservation(id);
             res.Room = ctx.Rooms.Where(r => r.Nr == roomNr).First();
-            return ctx.SaveChanges() > 0;
+            res.Start = DateTime.Now;
+            if (ctx.SaveChanges() > 0)
+            {
+                StateChanged?.Invoke(this);
+                return true;
+            }
+            return false;
+        }
+
+        public bool CheckOut(int id)
+        {
+            Reservation res = GetReservation(id);
+            res.End = DateTime.Now;
+            Entities.Task cleaning = new Entities.Task();
+            cleaning.Room = res.Room;
+            cleaning.ServiceType = TaskTypes.Cleaning;
+            cleaning.Status = TaskStatus.New;
+            ctx.Tasks.Add(cleaning);
+            if (ctx.SaveChanges() > 1)
+            {
+                StateChanged?.Invoke(this);
+                return true;
+            }
+            return false;
         }
     }
 }
