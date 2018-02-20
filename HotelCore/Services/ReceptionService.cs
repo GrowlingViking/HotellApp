@@ -19,7 +19,7 @@ namespace HotelCore.Services
 
         public List<Reservation> GetReservations(bool active)
         {
-            return ctx.Reservations.Where(res => !active || res.Room == null).ToList();
+            return ctx.Reservations.Where(res => !active || res.Room == null || res.End < DateTime.Now).ToList();
         }
 
         public List<Room> GetRooms()
@@ -44,6 +44,13 @@ namespace HotelCore.Services
         public Reservation GetReservation(int id)
         {
             return ctx.Reservations.Where(res => res.Id == id).First();
+        }
+
+        public bool CheckIn(int id, int roomNr)
+        {
+            Reservation res = GetReservation(id);
+            res.Room = ctx.Rooms.Where(r => r.Nr == roomNr).First();
+            return ctx.SaveChanges() > 0;
         }
     }
 }
