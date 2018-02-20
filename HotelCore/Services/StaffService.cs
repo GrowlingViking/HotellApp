@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 using System.Text;
 
 namespace HotelCore.Services
@@ -22,7 +23,7 @@ namespace HotelCore.Services
 
         public List<Task> GetAllTasks()
         {
-            return dx.Tasks.ToList();
+            return dx.Tasks.Include(t => t.Notes).ToList();
         }
 
         public List<Note> GetNotes(int task)
@@ -33,6 +34,20 @@ namespace HotelCore.Services
         public Task GetTask(int id)
         {
             return dx.Tasks.Where(t => t.Id == id).Single();
+        }
+
+        public void SetTaskStatus(int taskId, string newStatus)
+        {
+            var task = dx.Tasks.Where(t => t.Id == taskId).Single();
+            task.Status = newStatus;
+            dx.SaveChanges();
+        }
+
+        public void AddNoteToTask(int taskId, string note)
+        {
+            var task = dx.Tasks.Where(t => t.Id == taskId).Single();
+            task.Notes.Add(new Note { Text = note });
+            dx.SaveChanges();
         }
     }
 }
