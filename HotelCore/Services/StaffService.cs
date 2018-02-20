@@ -20,6 +20,11 @@ namespace HotelCore.Services
             return dx.Tasks.Where(t => t.ServiceType == taskType).ToList();
         }
 
+        public List<Task> GetAllTasks()
+        {
+            return dx.Tasks.ToList();
+        }
+
         public List<Note> GetNotes(int task)
         {
             return dx.Notes.Where(n => n.Task.Id == task).ToList();
