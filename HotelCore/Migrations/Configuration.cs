@@ -31,8 +31,9 @@ namespace HotelCore.Migrations
                 AddRooms(context, 61, 65, rtPenthouse);
             }
 
-
             context.Users.AddOrUpdate(new User { Id = 1, UserName = "Erik", Password = "" });
+            context.Users.AddOrUpdate(new User { Id = 2, UserName = "Sigurd", Password = "" });
+            context.Users.AddOrUpdate(new User { Id = 3, UserName = "Kenneth", Password = "" });
         }
 
         private void AddRooms(HotelCore.HotelModelCf context, int fromNum, int toNum, RoomType type)
