@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -23,7 +24,7 @@ namespace HotelCore.Services
 
         public List<Room> GetRooms()
         {
-            return ctx.Rooms.ToList();
+            return ctx.Rooms.Include(r => r.Type).ToList();
         }
 
         public List<String> GetRoomTypes()
