@@ -37,7 +37,6 @@ namespace HotelDesktop
 
             var rooms = rs.GetRooms().Select(r => new
             {
-                Id = r.Id,
                 Nr = r.Nr,
                 RoomType = r.Type == null ? "" : r.Type.Name
             }).ToList();

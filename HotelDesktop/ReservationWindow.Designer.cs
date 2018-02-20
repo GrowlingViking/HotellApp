@@ -42,11 +42,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.Type = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.RoomSelect = new System.Windows.Forms.ComboBox();
             this.CheckIn = new System.Windows.Forms.Button();
             this.CheckOut = new System.Windows.Forms.Button();
             this.Save = new System.Windows.Forms.Button();
             this.Delete = new System.Windows.Forms.Button();
+            this.RoomSelect = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -212,14 +212,6 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(786, 241);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
-            // RoomSelect
-            // 
-            this.RoomSelect.FormattingEnabled = true;
-            this.RoomSelect.Location = new System.Drawing.Point(3, 3);
-            this.RoomSelect.Name = "RoomSelect";
-            this.RoomSelect.Size = new System.Drawing.Size(103, 24);
-            this.RoomSelect.TabIndex = 0;
-            // 
             // CheckIn
             // 
             this.CheckIn.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -230,6 +222,7 @@
             this.CheckIn.TabIndex = 1;
             this.CheckIn.Text = "Check in";
             this.CheckIn.UseVisualStyleBackColor = true;
+            this.CheckIn.Click += new System.EventHandler(this.CheckIn_Click);
             // 
             // CheckOut
             // 
@@ -263,6 +256,14 @@
             this.Delete.TabIndex = 4;
             this.Delete.Text = "Delete reservation";
             this.Delete.UseVisualStyleBackColor = true;
+            // 
+            // RoomSelect
+            // 
+            this.RoomSelect.FormattingEnabled = true;
+            this.RoomSelect.Location = new System.Drawing.Point(3, 3);
+            this.RoomSelect.Name = "RoomSelect";
+            this.RoomSelect.Size = new System.Drawing.Size(103, 24);
+            this.RoomSelect.TabIndex = 0;
             // 
             // label6
             // 

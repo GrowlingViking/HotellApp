@@ -37,5 +37,13 @@ namespace HotelDesktop
                 RoomSelect.Items.Add(r.Nr);
 
         }
+
+        private void CheckIn_Click(object sender, EventArgs e)
+        {
+            int room;
+            if (int.TryParse(RoomSelect.SelectedItem.ToString(), out room))
+                if (rs.CheckIn(reservation.Id, room))
+                    this.Close();
+        }
     }
 }
