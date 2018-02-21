@@ -16,7 +16,7 @@ namespace StaffApp
         public static void GetAllTasksFromTheWeb()
         {
             HttpClient client = new HttpClient();
-            Uri uri = new Uri("http://localhost:50094/api/Task/");
+            Uri uri = new Uri("http://localhost:5000/api/task/");
             GetTaskListAsync(client, uri);
         }
 
