@@ -16,6 +16,8 @@ namespace HotelCore.Services
         public event Del StateChanged;
         private HotelModelCf ctx;
 
+        // Data
+
         public ReceptionService(HotelModelCf ctx)
         {
             this.ctx = ctx;
@@ -29,6 +31,16 @@ namespace HotelCore.Services
         public List<Room> GetRooms()
         {
             return ctx.Rooms.Include(r => r.Type).ToList();
+        }
+
+        public Room GetRoom(int nr)
+        {
+            return ctx.Rooms.Where(r => r.Nr == nr).First();
+        }
+
+        public List<Entities.Task> GetTasks(int roomId)
+        {
+            return ctx.Tasks.Where(t => t.Room.Id == roomId).ToList();
         }
 
         public List<String> GetRoomTypes()
@@ -45,39 +57,62 @@ namespace HotelCore.Services
             .ToList();
         }
 
-        public Reservation GetReservation(int id)
-        {
-            return ctx.Reservations.Where(res => res.Id == id).First();
-        }
+        // Actions
 
         public bool CheckIn(int id, int roomNr)
         {
-            Reservation res = GetReservation(id);
+            Reservation res = ctx.Reservations.Where(r => r.Id == id).First();
             res.Room = ctx.Rooms.Where(r => r.Nr == roomNr).First();
             res.Start = DateTime.Now;
-            if (ctx.SaveChanges() > 0)
-            {
-                StateChanged?.Invoke(this);
-                return true;
-            }
-            return false;
+            return SaveChanges(1);
         }
 
         public bool CheckOut(int id)
         {
-            Reservation res = GetReservation(id);
+            Reservation res = ctx.Reservations.Where(r => r.Id == id).First();
             res.End = DateTime.Now;
             Entities.Task cleaning = new Entities.Task();
             cleaning.Room = res.Room;
             cleaning.ServiceType = TaskTypes.Cleaning;
             cleaning.Status = TaskStatus.New;
             ctx.Tasks.Add(cleaning);
-            if (ctx.SaveChanges() > 1)
-            {
+            return SaveChanges(2);
+        }
+
+        public bool ModifyRes(int id, DateTime start, DateTime end, String type)
+        {
+            Reservation res = ctx.Reservations.Where(r => r.Id == id).First();
+            res.Start = start;
+            res.End = end;
+            res.Type = ctx.RoomTypes.Where(t => t.Name == type).First();
+            res.Room = null; // require checkin again
+            return SaveChanges(1);
+        }
+
+        public bool DeleteRes(int id)
+        {
+            ctx.Reservations.Remove(ctx.Reservations.Where(r => r.Id == id).First());
+            return SaveChanges(1);
+        }
+
+        public bool NewTask(int roomId, String taskType)
+        {
+            Entities.Task task = new Entities.Task();
+            task.Room = ctx.Rooms.Where(r => r.Id == roomId).First();
+            task.ServiceType = taskType;
+            task.Status = TaskStatus.New;
+            ctx.Tasks.Add(task);
+            return SaveChanges(1);
+        }
+
+        // private method that saves and fires statechanged event
+
+        private bool SaveChanges(int expected)
+        {
+            int changed = ctx.SaveChanges();
+            if (changed >= expected)
                 StateChanged?.Invoke(this);
-                return true;
-            }
-            return false;
+            return changed >= expected;
         }
     }
 }

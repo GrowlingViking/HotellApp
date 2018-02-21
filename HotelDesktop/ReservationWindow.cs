@@ -23,7 +23,7 @@ namespace HotelDesktop
             InitializeComponent();
 
             this.rs = rs;
-            this.reservation = rs.GetReservation(id);
+            this.reservation = rs.GetReservations(false).Where(r => r.Id == id).First();
 
             Id.Text = reservation.Id.ToString();
             Start.Value = reservation.Start;
@@ -33,10 +33,10 @@ namespace HotelDesktop
             Type.SelectedItem = reservation.Type.Name;
             User.Text = reservation.User.UserName;
 
-            if (reservation.Room == null)
-                foreach (Room r in rs.GetReadyRooms(reservation.Type.Name))
-                    RoomSelect.Items.Add(r.Nr);
-            else
+            foreach (Room r in rs.GetReadyRooms(reservation.Type.Name))
+                RoomSelect.Items.Add(r.Nr);
+
+            if (reservation.Room != null)
             {
                 RoomSelect.Items.Add(reservation.Room.Nr);
                 RoomSelect.SelectedItem = reservation.Room.Nr;
@@ -55,6 +55,27 @@ namespace HotelDesktop
         {
             if (rs.CheckOut(reservation.Id))
                 this.Close();
+        }
+
+        private void Save_Click(object sender, EventArgs e)
+        {
+            if (rs.ModifyRes(reservation.Id, Start.Value, End.Value, Type.SelectedItem.ToString()))
+                this.Close();
+        }
+
+        private void Type_SelectedValueChanged(object sender, EventArgs e)
+        {
+            RoomSelect.Items.Clear();
+            foreach (Room r in rs.GetReadyRooms(Type.SelectedItem.ToString()))
+                RoomSelect.Items.Add(r.Nr);
+        }
+
+        private void Delete_Click(object sender, EventArgs e)
+        {
+            var confirmResult = MessageBox.Show("Warning", "Vietnam", MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.Yes)
+                if (rs.DeleteRes(reservation.Id))
+                    this.Close();
         }
     }
 }

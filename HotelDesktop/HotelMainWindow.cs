@@ -66,7 +66,8 @@ namespace HotelDesktop
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            int id = (int)dataGridView1.SelectedRows[0].Cells[0].Value;
+            int nr = (int)dataGridView1.SelectedRows[0].Cells[0].Value;
+            new RoomWindow(nr, rs).Show();
         }
 
         private void ShowOld_CheckedChanged(object sender, EventArgs e)

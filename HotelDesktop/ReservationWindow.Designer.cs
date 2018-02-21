@@ -58,25 +58,28 @@
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 15F));
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(10, 10);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(8, 8);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(789, 494);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(591, 402);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.tableLayoutPanel2);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(3, 3);
+            this.groupBox1.Location = new System.Drawing.Point(2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(786, 241);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(590, 197);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Res Info";
@@ -97,7 +100,8 @@
             this.tableLayoutPanel2.Controls.Add(this.label2, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.Type, 0, 3);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 18);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(2, 15);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 5;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -105,91 +109,102 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(780, 220);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(586, 180);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(393, 176);
+            this.label5.Location = new System.Drawing.Point(295, 144);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(109, 17);
+            this.label5.Size = new System.Drawing.Size(82, 13);
             this.label5.TabIndex = 9;
             this.label5.Text = "Customer Name";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(393, 132);
+            this.label4.Location = new System.Drawing.Point(295, 108);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(76, 17);
+            this.label4.Size = new System.Drawing.Size(58, 13);
             this.label4.TabIndex = 8;
             this.label4.Text = "Room type";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(393, 88);
+            this.label3.Location = new System.Drawing.Point(295, 72);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 17);
+            this.label3.Size = new System.Drawing.Size(56, 13);
             this.label3.TabIndex = 7;
             this.label3.Text = "Check out";
             // 
             // Id
             // 
-            this.Id.Location = new System.Drawing.Point(3, 3);
+            this.Id.Location = new System.Drawing.Point(2, 2);
+            this.Id.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
-            this.Id.Size = new System.Drawing.Size(100, 22);
+            this.Id.Size = new System.Drawing.Size(76, 20);
             this.Id.TabIndex = 0;
             // 
             // User
             // 
-            this.User.Location = new System.Drawing.Point(3, 179);
+            this.User.Location = new System.Drawing.Point(2, 146);
+            this.User.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.User.Name = "User";
             this.User.ReadOnly = true;
-            this.User.Size = new System.Drawing.Size(100, 22);
+            this.User.Size = new System.Drawing.Size(76, 20);
             this.User.TabIndex = 2;
             // 
             // Start
             // 
-            this.Start.Location = new System.Drawing.Point(3, 47);
+            this.Start.Location = new System.Drawing.Point(2, 38);
+            this.Start.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Start.Name = "Start";
-            this.Start.Size = new System.Drawing.Size(200, 22);
+            this.Start.Size = new System.Drawing.Size(151, 20);
             this.Start.TabIndex = 3;
             // 
             // End
             // 
-            this.End.Location = new System.Drawing.Point(3, 91);
+            this.End.Location = new System.Drawing.Point(2, 74);
+            this.End.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.End.Name = "End";
-            this.End.Size = new System.Drawing.Size(200, 22);
+            this.End.Size = new System.Drawing.Size(151, 20);
             this.End.TabIndex = 4;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(393, 0);
+            this.label1.Location = new System.Drawing.Point(295, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(19, 17);
+            this.label1.Size = new System.Drawing.Size(16, 13);
             this.label1.TabIndex = 5;
             this.label1.Text = "Id";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(393, 44);
+            this.label2.Location = new System.Drawing.Point(295, 36);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 17);
+            this.label2.Size = new System.Drawing.Size(49, 13);
             this.label2.TabIndex = 6;
             this.label2.Text = "Check in";
             // 
             // Type
             // 
             this.Type.FormattingEnabled = true;
-            this.Type.Location = new System.Drawing.Point(3, 135);
+            this.Type.Location = new System.Drawing.Point(2, 110);
+            this.Type.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Type.Name = "Type";
-            this.Type.Size = new System.Drawing.Size(121, 24);
+            this.Type.Size = new System.Drawing.Size(92, 21);
             this.Type.TabIndex = 10;
+            this.Type.SelectedValueChanged += new System.EventHandler(this.Type_SelectedValueChanged);
             // 
             // tableLayoutPanel3
             // 
@@ -203,22 +218,23 @@
             this.tableLayoutPanel3.Controls.Add(this.RoomSelect, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.label6, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 250);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(2, 203);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 3;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(786, 241);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(590, 197);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // CheckIn
             // 
             this.CheckIn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CheckIn.Location = new System.Drawing.Point(10, 90);
-            this.CheckIn.Margin = new System.Windows.Forms.Padding(10);
+            this.CheckIn.Location = new System.Drawing.Point(8, 73);
+            this.CheckIn.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
             this.CheckIn.Name = "CheckIn";
-            this.CheckIn.Size = new System.Drawing.Size(373, 60);
+            this.CheckIn.Size = new System.Drawing.Size(279, 49);
             this.CheckIn.TabIndex = 1;
             this.CheckIn.Text = "Check in";
             this.CheckIn.UseVisualStyleBackColor = true;
@@ -227,10 +243,10 @@
             // CheckOut
             // 
             this.CheckOut.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CheckOut.Location = new System.Drawing.Point(10, 170);
-            this.CheckOut.Margin = new System.Windows.Forms.Padding(10);
+            this.CheckOut.Location = new System.Drawing.Point(8, 138);
+            this.CheckOut.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
             this.CheckOut.Name = "CheckOut";
-            this.CheckOut.Size = new System.Drawing.Size(373, 61);
+            this.CheckOut.Size = new System.Drawing.Size(279, 51);
             this.CheckOut.TabIndex = 2;
             this.CheckOut.Text = "Check out";
             this.CheckOut.UseVisualStyleBackColor = true;
@@ -239,50 +255,55 @@
             // Save
             // 
             this.Save.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Save.Location = new System.Drawing.Point(403, 90);
-            this.Save.Margin = new System.Windows.Forms.Padding(10);
+            this.Save.Location = new System.Drawing.Point(303, 73);
+            this.Save.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
             this.Save.Name = "Save";
-            this.Save.Size = new System.Drawing.Size(373, 60);
+            this.Save.Size = new System.Drawing.Size(279, 49);
             this.Save.TabIndex = 3;
             this.Save.Text = "Save changes";
             this.Save.UseVisualStyleBackColor = true;
+            this.Save.Click += new System.EventHandler(this.Save_Click);
             // 
             // Delete
             // 
             this.Delete.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Delete.Location = new System.Drawing.Point(403, 170);
-            this.Delete.Margin = new System.Windows.Forms.Padding(10);
+            this.Delete.Location = new System.Drawing.Point(303, 138);
+            this.Delete.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
             this.Delete.Name = "Delete";
-            this.Delete.Size = new System.Drawing.Size(373, 61);
+            this.Delete.Size = new System.Drawing.Size(279, 51);
             this.Delete.TabIndex = 4;
             this.Delete.Text = "Delete reservation";
             this.Delete.UseVisualStyleBackColor = true;
+            this.Delete.Click += new System.EventHandler(this.Delete_Click);
             // 
             // RoomSelect
             // 
             this.RoomSelect.FormattingEnabled = true;
-            this.RoomSelect.Location = new System.Drawing.Point(3, 3);
+            this.RoomSelect.Location = new System.Drawing.Point(2, 2);
+            this.RoomSelect.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.RoomSelect.Name = "RoomSelect";
-            this.RoomSelect.Size = new System.Drawing.Size(103, 24);
+            this.RoomSelect.Size = new System.Drawing.Size(78, 21);
             this.RoomSelect.TabIndex = 0;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(396, 0);
+            this.label6.Location = new System.Drawing.Point(297, 0);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(83, 17);
+            this.label6.Size = new System.Drawing.Size(63, 13);
             this.label6.TabIndex = 5;
             this.label6.Text = "Select room";
             // 
             // ReservationWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(809, 514);
+            this.ClientSize = new System.Drawing.Size(607, 418);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ReservationWindow";
-            this.Padding = new System.Windows.Forms.Padding(10);
+            this.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
             this.Text = "Reservation";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
