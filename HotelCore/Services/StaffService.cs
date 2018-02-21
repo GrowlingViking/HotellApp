@@ -23,7 +23,7 @@ namespace HotelCore.Services
 
         public List<Task> GetAllTasks()
         {
-            return dx.Tasks.Include(t => t.Notes).ToList();
+            return dx.Tasks.Include(t => t.Notes).Include(t => t.Room).ToList();
         }
 
         public List<Note> GetNotes(int task)

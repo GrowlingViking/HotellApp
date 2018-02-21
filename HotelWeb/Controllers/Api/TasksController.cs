@@ -49,6 +49,7 @@ namespace HotelWeb.Controllers.Api
                     ID = task.Id,
                     ServiceType = task.ServiceType,
                     Status = task.Status,
+                    RoomNr = task.Room.Nr,
                     Notes = new List<string>()
                 };
                 foreach (var note in task.Notes)
