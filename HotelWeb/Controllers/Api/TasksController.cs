@@ -24,15 +24,30 @@ namespace HotelWeb.Controllers.Api
             return Ok(tasks);
         }
 
-        [Route("api/tasks/{id}/{status}")]
-        public IHttpActionResult UpdateStatusOfTask([FromUri] int id, [FromUri] string status)
+        [Route("api/tasks/{id}/{newStatus}")]
+        [HttpPut]
+        public IHttpActionResult UpdateStatusOfTask([FromUri] int id, [FromUri] string newStatus)
         {
+            string status;
+            switch (newStatus)
+            {
+                case "inprogress":
+                    status = TaskStatus.In_progress;
+                    break;
+                case "finished":
+                    status = TaskStatus.Finished;
+                    break;
+                default:
+                    return BadRequest("Status is not valid");
+            }
+
             var staffService = serviceFactory.GetStaffService();
             staffService.SetTaskStatus(id, status);
             return Ok();
         }
 
         [Route("api/tasks/{id}/notes")]
+        [HttpPost]
         public IHttpActionResult AddNoteToTask([FromUri] int id, [FromBody] TaskNoteModel note)
         {
             serviceFactory.GetStaffService().AddNoteToTask(id, note.Text);
