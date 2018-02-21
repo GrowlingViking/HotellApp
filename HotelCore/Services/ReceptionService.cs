@@ -40,7 +40,12 @@ namespace HotelCore.Services
 
         public List<Entities.Task> GetTasks(int roomId)
         {
-            return ctx.Tasks.Where(t => t.Room.Id == roomId).ToList();
+            return ctx.Tasks.Where(t => t.Room.Id == roomId).OrderByDescending(t => t.Id).ToList();
+        }
+
+        public Entities.Task GetTask(int taskId)
+        {
+            return ctx.Tasks.Find(taskId);
         }
 
         public List<String> GetRoomTypes()
@@ -55,6 +60,11 @@ namespace HotelCore.Services
             .Where(r => r.Tasks.Where(task => task.ServiceType == TaskTypes.Cleaning)
                 .Where(task => task.Status == TaskStatus.In_progress || task.Status == TaskStatus.New).Count() == 0)
             .ToList();
+        }
+
+        public List<Note> GetNotes(int id)
+        {
+            return ctx.Notes.Where(n => n.Task.Id == id).ToList();
         }
 
         // Actions
@@ -102,6 +112,44 @@ namespace HotelCore.Services
             task.ServiceType = taskType;
             task.Status = TaskStatus.New;
             ctx.Tasks.Add(task);
+            return SaveChanges(1);
+        }
+
+        public bool ModifyTask(int id, String type, String status)
+        {
+            Entities.Task task = ctx.Tasks.Find(id);
+            task.ServiceType = type;
+            task.Status = status;
+            return SaveChanges(1);
+        }
+
+        public bool NewRoom(int nr, String type)
+        {
+            if (ctx.Rooms.Where(r => r.Nr == nr).Count() == 0)
+            {
+                Room room = new Room();
+                room.Nr = nr;
+                room.Type = ctx.RoomTypes.Where(t => t.Name == type).First();
+                ctx.Rooms.Add(room);
+                return SaveChanges(1);
+            }
+            return false;
+        }
+
+        public bool ModifyRoom(int id, int nr, String type)
+        {
+            Room room = ctx.Rooms.Find(id);
+            room.Nr = nr;
+            room.Type = ctx.RoomTypes.Where(t => t.Name == type).First();
+            return SaveChanges(1);
+        }
+
+        public bool NewNote(int taskId, String text)
+        {
+            Note note = new Note();
+            note.Task = ctx.Tasks.Find(taskId);
+            note.Text = text;
+            ctx.Notes.Add(note);
             return SaveChanges(1);
         }
 

@@ -69,5 +69,32 @@ namespace HotelDesktop
                 if (rs.NewTask(room.Id, ServiceType.SelectedItem.ToString()))
                     InitializeTasks();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (ServiceType.SelectedItem != null && Status.SelectedItem != null && IdTask != null)
+                if (rs.ModifyTask(int.Parse(IdTask.Text), ServiceType.SelectedItem.ToString(), Status.SelectedItem.ToString()))
+                    InitializeTasks();
+        }
+
+        private void Save_Click(object sender, EventArgs e)
+        {
+            if (NrRoom.Text != null && TypeSelect.SelectedItem != null)
+                if (rs.ModifyRoom(room.Id, int.Parse(NrRoom.Text), TypeSelect.SelectedItem.ToString()))
+                    this.Close();
+        }
+
+        private void New_Click(object sender, EventArgs e)
+        {
+            if (NrRoom.Text != null && TypeSelect.SelectedItem != null)
+                if (rs.NewRoom(int.Parse(NrRoom.Text), TypeSelect.SelectedItem.ToString()))
+                    this.Close();
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int taskId = (int)dataGridView1.SelectedRows[0].Cells[0].Value;
+            new NotesWindow(taskId, rs).Show();
+        }
     }
 }
