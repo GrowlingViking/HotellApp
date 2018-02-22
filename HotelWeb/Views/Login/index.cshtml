@@ -1,4 +1,5 @@
-﻿
+﻿@model HotelWeb.Models.LoginDataModel
+
 @{
     ViewBag.Title = "index";
     Layout = "~/Views/_Layout.cshtml";
@@ -10,11 +11,12 @@
         @if (ViewBag.Message != null) {
             <strong>@ViewBag.Message</strong>
         }
-        <form method="post">
-            <input type="text" name="username" />
-            <input type="password" name="password" />
+        @using (Html.BeginForm())
+        {
+            @Html.TextBoxFor(model => model.Username)
+            @Html.PasswordFor(model => model.Password)
             <input type="submit" value="Log in" />
-        </form>
+        }
     </div>
     <div class="col-md6">
         To register click here

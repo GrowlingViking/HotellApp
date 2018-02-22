@@ -18,7 +18,8 @@ namespace HotelWeb
 
         public void OnAuthorization(AuthorizationContext context)
         {
-            if (context.HttpContext.Session["loggedInUser"] == null)
+            var manager = new SigninManager(context.HttpContext);
+            if (!manager.IsLoggedIn())
             {
                 RedirectToLogin(context);
             }
