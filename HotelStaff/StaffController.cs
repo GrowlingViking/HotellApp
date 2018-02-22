@@ -20,6 +20,21 @@ namespace StaffApp
             GetTaskListAsync(client, uri);
         }
 
+        public static void UpdateTask(ServiceTask task, string note)
+        {
+            HttpClient client = new HttpClient();
+            Uri uri = new Uri("http://localhost:5000/api/tasks/" + task.ID.ToString() + "/" + task.Status);
+            SetTaskStatusAsync(client, uri, task);
+            
+
+            if (note != "")
+            {
+                uri = new Uri("http://localhost:5000/api/tasks/" + task.ID.ToString());
+                AddNoteToTaskAsync(client, uri, note);
+            }
+            
+        }
+
         public static List<ServiceTask> GetTasks(string type)
         {
             return tasks.FindAll(t => t.ServiceType == type);
@@ -39,6 +54,46 @@ namespace StaffApp
             }
 
             tasks = JsonConvert.DeserializeObject<List<ServiceTask>>(result);
+        }
+
+        private static async void SetTaskStatusAsync(HttpClient client, Uri uri, ServiceTask task)
+        {
+            HttpResponseMessage result;
+
+            var data = new HttpFormUrlEncodedContent(
+                new Dictionary<string, string>
+                {
+                    ["status"] = task.Status,
+                    ["id"] = task.ID.ToString()
+                });
+            try
+            {
+                result = await client.PutAsync(uri, data);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        private static async void AddNoteToTaskAsync(HttpClient client, Uri uri, string note)
+        {
+            HttpResponseMessage result;
+
+            var data = new HttpFormUrlEncodedContent(
+                new Dictionary<string, string>
+                {
+                    ["note"] = note
+                });
+
+            try
+            {
+                result = await client.PostAsync(uri, data);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
 
         public static string GetStatusOnActive()

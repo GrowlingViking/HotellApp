@@ -41,7 +41,8 @@ namespace StaffApp
 
         private void DoneButton_Click(object sender, RoutedEventArgs e)
         {
-
+            StaffController.UpdateTask(activeTask, NewNote.Text);
+            this.Frame.Navigate(typeof(TaskList));
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
