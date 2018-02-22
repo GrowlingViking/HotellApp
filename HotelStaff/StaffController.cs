@@ -29,7 +29,7 @@ namespace StaffApp
 
             if (note != "")
             {
-                uri = new Uri("http://localhost:5000/api/tasks/" + task.ID.ToString());
+                uri = new Uri("http://localhost:5000/api/tasks/" + task.ID.ToString() + "/notes");
                 AddNoteToTaskAsync(client, uri, note);
             }
             
