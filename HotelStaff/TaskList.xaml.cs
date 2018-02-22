@@ -27,7 +27,7 @@ namespace StaffApp
         {
             this.InitializeComponent();
             Header.Text = MainPage.state;
-            TaskSource = StaffController.GetTasks(MainPage.state);
+            TaskSource = StaffControler.GetTasks(MainPage.state);
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
@@ -39,7 +39,7 @@ namespace StaffApp
         {
             ServiceTask activeTask = (ServiceTask)e.ClickedItem;
 
-            StaffController.SetActiveTasks(activeTask);
+            StaffControler.SetActiveTasks(activeTask);
 
             this.Frame.Navigate(typeof(TaskPage));
         }

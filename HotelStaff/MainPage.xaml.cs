@@ -28,7 +28,7 @@ namespace StaffApp
         public MainPage()
         {
             this.InitializeComponent();
-            StaffController.GetAllTasksFromTheWeb();
+            StaffControler.GetAllTasksFromTheWeb();
         }
 
         private void Cleaning_Click(object sender, RoutedEventArgs e)

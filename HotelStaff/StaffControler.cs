@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace StaffApp
 {
-    class StaffController
+    class StaffControler
     {
         private static ServiceTask activeTask;
         private static List<ServiceTask> tasks = new List<ServiceTask>();

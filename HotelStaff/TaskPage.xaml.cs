@@ -27,7 +27,7 @@ namespace StaffApp
         public TaskPage()
         {
             this.InitializeComponent();
-            activeTask = StaffController.GetActiveTask();
+            activeTask = StaffControler.GetActiveTask();
             Header.Text = "Room nr: " + activeTask.RoomNr;
             SetStatusOnButtons(activeTask.Status);
             Notes.ItemsSource = activeTask.Notes;
@@ -41,7 +41,7 @@ namespace StaffApp
 
         private void DoneButton_Click(object sender, RoutedEventArgs e)
         {
-            StaffController.UpdateTask(activeTask, NewNote.Text);
+            StaffControler.UpdateTask(activeTask, NewNote.Text);
             this.Frame.Navigate(typeof(TaskList));
         }
 

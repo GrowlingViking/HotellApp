@@ -100,7 +100,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceTask.cs" />
-    <Compile Include="StaffController.cs" />
+    <Compile Include="StaffControler.cs" />
     <Compile Include="TaskList.xaml.cs">
       <DependentUpon>TaskList.xaml</DependentUpon>
     </Compile>
