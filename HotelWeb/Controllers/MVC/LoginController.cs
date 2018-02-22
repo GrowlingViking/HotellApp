@@ -8,19 +8,18 @@ using System.Web.Mvc;
 
 namespace HotelWeb.Controllers.MVC
 {
-    [RoutePrefix("login")]
     public class LoginController : Controller
     {
         private ServiceFactory serviceFactory = new ServiceFactory();
 
-        [Route("")]
+        [Route("login")]
         [HttpGet]
         public ActionResult Index()
         {
             return View();
         }
 
-        [Route("")]
+        [Route("login")]
         [HttpPost]
         public ActionResult Postback(LoginDataModel loginData)
         {
@@ -37,6 +36,14 @@ namespace HotelWeb.Controllers.MVC
                 return View("index");
             }
 
+            return Redirect("/");
+        }
+
+        [Route("logout")]
+        public ActionResult Logout()
+        {
+            var signin = new SigninManager(HttpContext);
+            signin.SignOut();
             return Redirect("/");
         }
     }
