@@ -33,6 +33,7 @@ namespace HotelDesktop
         {
             notes = rs.GetNotes(task.Id);
             dataGridView1.DataSource = notes.Select(n => new { Text = n.Text }).ToList();
+            textBox1.Text = "";
         }
 
         private void button1_Click(object sender, EventArgs e)
