@@ -42,6 +42,7 @@ namespace StaffApp
         private void DoneButton_Click(object sender, RoutedEventArgs e)
         {
             StaffControler.UpdateTask(activeTask, NewNote.Text);
+            StaffControler.GetAllTasksFromTheWeb();
             this.Frame.Navigate(typeof(TaskList));
         }
 
