@@ -115,7 +115,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\Api\TasksController.cs" />
+    <Compile Include="Controllers\MVC\BookingController.cs" />
     <Compile Include="Controllers\MVC\IndexController.cs" />
+    <Compile Include="Controllers\MVC\LoginController.cs" />
     <Compile Include="HotelAuthFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -130,6 +132,8 @@
     <None Include="packages.config" />
     <Content Include="Views\_Layout.cshtml" />
     <Content Include="Views\Index\index.cshtml" />
+    <Content Include="Views\Login\index.cshtml" />
+    <Content Include="Views\Booking\index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

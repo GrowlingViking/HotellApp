@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "index";
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Login</h2>
+        @if (ViewBag.Message != null) {
+            <strong>@ViewBag.Message</strong>
+        }
+        <form method="post">
+            <input type="text" name="username" />
+            <input type="password" name="password" />
+            <input type="submit" value="Log in" />
+        </form>
+    </div>
+    <div class="col-md6">
+        To register click here
+    </div>
+</div>
+

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 
 namespace HotelWeb
 {
@@ -15,9 +16,17 @@ namespace HotelWeb
             securityManager = new SecurityManager(new HotelCore.ServiceFactory());
         }
 
-        public void OnAuthorization(AuthorizationContext filterContext)
+        public void OnAuthorization(AuthorizationContext context)
         {
-            throw new NotImplementedException();
+            if (context.HttpContext.Session["loggedInUser"] == null)
+            {
+                RedirectToLogin(context);
+            }
+        }
+
+        private void RedirectToLogin(AuthorizationContext context)
+        {
+            context.Result = new RedirectResult("/login");
         }
     }
 }
